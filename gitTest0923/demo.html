@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Submission Page</title>
+    <style>
+        /* 基本样式 (与前面示例相同) */
+        /* ... */
+    </style>
+</head>
+<body>
+    <header>
+        <h1>User Submission Page</h1>
+    </header>
+    <div class="container">
+        <h2>Submit Your Information</h2>
+        <form id="submissionForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div id="messageDiv"></div>
+
+        <script>
+            const form = document.getElementById('submissionForm');
+            const messageDiv = document.getElementById('messageDiv');
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // 模拟提交（在实际应用中，您将要将数据发送到服务器）
+                const formData = new FormData(form);
+
+                // 添加提交后的处理逻辑，这里简单地显示成功或失败消息
+                if (Math.random() < 0.5) {
+                    messageDiv.textContent = '提交成功！';
+                    messageDiv.style.color = 'green';
+                } else {
+                    messageDiv.textContent = '提交失败，请重试。';
+                    messageDiv.style.color = 'red';
+                }
+
+                // 清空表单
+                form.reset();
+            });
+        </script>
+    </div>
+</body>
+</html>
